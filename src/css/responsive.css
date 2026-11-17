@@ -1,0 +1,998 @@
+/* ==========================================================================
+   RESPONSIVE.CSS - Abhishek Mallick Personal Portfolio
+   Handles all responsive breakpoints and mobile adaptations
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GLOBAL OVERFLOW & VIEWPORT DEFENSE
+   Prevents accidental horizontal scrollbar and layout breakage
+   -------------------------------------------------------------------------- */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* Prevent image/media elements from overflowing their containers */
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base menu-toggle state (hidden on large displays) */
+.menu-toggle {
+  display: none;
+}
+
+/* Body lock when mobile menu overlay is active */
+body.menu-open {
+  overflow: hidden !important;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Large desktop: 1440px+ - mostly default styles
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px;
+  }
+
+  .hero h1 {
+    font-size: 4.25rem;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Laptop: 1024px - 1366px
+   Slight adjustments for compact laptops and small desktops
+   -------------------------------------------------------------------------- */
+@media (max-width: 1366px) {
+  .container {
+    max-width: 1140px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero .container,
+  .hero.container {
+    gap: 2.5rem;
+  }
+
+  .hero-copy {
+    max-width: 580px;
+  }
+
+  .portrait-wrap {
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  .portrait-frame {
+    max-width: 340px;
+  }
+
+  .profile-img {
+    max-width: 340px;
+    height: 340px;
+  }
+
+  .skill-grid {
+    gap: 20px;
+  }
+
+  .skill-group {
+    padding: 28px;
+  }
+
+  .project-meta {
+    padding: 28px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Tablet landscape: max-width: 1024px
+   - Hero: stack to single column
+   - Project cards: adjust layout
+   - Skill grid: 2 columns
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Section padding moderate reduction */
+  section,
+  .section {
+    padding-block: 80px;
+  }
+
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Hero: stack to single column, centered text */
+  .hero,
+  .hero.container,
+  .hero .container,
+  .hero-grid,
+  .hero-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2.5rem !important;
+  }
+
+  .hero-copy,
+  .hero-content,
+  .hero-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 680px !important;
+    margin-inline: auto !important;
+  }
+
+  /* Decorative line in eyebrow: centered using margin auto */
+  .eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .eyebrow span,
+  .eyebrow-line {
+    margin: 0 auto !important;
+    display: inline-block !important;
+  }
+
+  .intro {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  /* Portrait photo on top on mobile/tablet */
+  .portrait-wrap {
+    order: -1 !important;
+    margin-inline: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Portrait frame / profile image: max-width 280px on tablet */
+  .portrait-frame,
+  .profile-img,
+  .portrait-img {
+    max-width: 280px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    margin-inline: auto !important;
+  }
+
+  /* Actions & social-row centered */
+  .actions,
+  .hero-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .social-row,
+  .social-links {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  /* Ambient glowing orbs scaled down for tablet performance */
+  .orb,
+  .orb-one,
+  .orb-two,
+  .orb-primary,
+  .orb-secondary,
+  .orb-subtle {
+    transform: scale(0.75);
+    opacity: 0.5;
+    filter: blur(50px);
+  }
+
+  /* Skill grid: 2 columns */
+  .skill-grid,
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .skill-group,
+  .skill-card {
+    padding: 24px;
+  }
+
+  /* Project cards: adjust layout (flex column, visual on top, meta below) */
+  .project,
+  .project-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .project-visual,
+  .project-image,
+  .project-img-wrapper {
+    width: 100% !important;
+    min-width: 100% !important;
+    min-height: 220px !important;
+    height: auto !important;
+  }
+
+  .project-meta,
+  .project-info,
+  .project-content {
+    width: 100% !important;
+    padding: 28px !important;
+  }
+
+  /* About & Certifications grid adjustments */
+  .about-grid,
+  .cert-grid {
+    gap: 2.5rem;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Tablet portrait: max-width: 768px
+   - Navigation: show hamburger, hide desktop links
+   - Mobile nav overlay
+   - Hero: fully stacked, centered text
+   - Portrait/photo: smaller (220px), centered
+   - About: single column
+   - Education timeline: adjust
+   - Skills: 2 columns still
+   - Projects: single column, stacked
+   - Contact: single column
+   - Footer: stacked
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* General rules: Container padding reduced from 24px to 16px */
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+  }
+
+  /* General rules: Section padding reduced from 100px+ to 60px */
+  section,
+  .section,
+  .statement {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    padding-block: 60px !important;
+  }
+
+  .section-label {
+    margin-bottom: 32px;
+  }
+
+  /* ------------------------------------------------------------------------
+     Navigation (768px and below)
+     ------------------------------------------------------------------------ */
+  /* Hide .nav-links desktop links by default */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show .menu-toggle hamburger button */
+  .menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Hamburger lines styling */
+  .menu-toggle i,
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #f1f5f9;
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease,
+                background-color 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Animate menu toggle lines to X when active */
+  .menu-toggle.active i:first-child,
+  .menu-toggle.active span:first-child {
+    transform: translateY(4px) rotate(45deg) !important;
+  }
+
+  .menu-toggle.active i:nth-child(2):not(:last-child),
+  .menu-toggle.active span:nth-child(2):not(:last-child) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  .menu-toggle.active i:last-child,
+  .menu-toggle.active span:last-child {
+    transform: translateY(-4px) rotate(-45deg) !important;
+  }
+
+  /* Mobile nav overlay: when .nav-links.open */
+  .nav-links.open {
+    display: flex !important;
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(10, 14, 26, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+    gap: 24px !important;
+    padding: 32px 24px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    animation: mobileNavEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes mobileNavEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Large links in mobile nav */
+  .nav-links.open a {
+    display: inline-block !important;
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+    color: #f1f5f9 !important;
+    letter-spacing: 0.02em !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease, transform 0.25s ease !important;
+  }
+
+  .nav-links.open a:hover,
+  .nav-links.open a.active {
+    color: #818cf8 !important;
+    transform: translateY(-2px);
+  }
+
+  /* ------------------------------------------------------------------------
+     Hero Section (768px and below)
+     - Fully stacked, centered text
+     - Portrait/photo: smaller (220px), centered
+     - Orb elements smaller
+     ------------------------------------------------------------------------ */
+  .hero {
+    padding-top: calc(var(--header-height, 72px) + 24px) !important;
+    padding-bottom: 60px !important;
+    min-height: auto !important;
+  }
+
+  .hero,
+  .hero.container,
+  .hero .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+
+  .hero-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    order: 2 !important;
+  }
+
+  .eyebrow {
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto 1rem auto !important;
+  }
+
+  .eyebrow span {
+    margin: 0 auto !important;
+  }
+
+  .intro {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    max-width: 440px !important;
+  }
+
+  .actions {
+    justify-content: center !important;
+    margin-inline: auto !important;
+  }
+
+  .social-row {
+    justify-content: center !important;
+    margin-inline: auto !important;
+    gap: 1.25rem !important;
+  }
+
+  .portrait-wrap {
+    order: 1 !important;
+    margin: 0 auto 1.5rem auto !important;
+  }
+
+  /* Portrait/photo: max-width 220px on mobile */
+  .portrait-frame,
+  .profile-img,
+  .portrait-img {
+    max-width: 220px !important;
+    height: 220px !important;
+    margin-inline: auto !important;
+  }
+
+  .portrait-info {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Orb elements: smaller on mobile */
+  .orb,
+  .orb-one,
+  .orb-two {
+    transform: scale(0.6) !important;
+    opacity: 0.4 !important;
+    filter: blur(40px) !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     About Section (768px and below)
+     - Single column
+     - Focus-list: centered or full-width tags
+     ------------------------------------------------------------------------ */
+  .about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .focus-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .focus-list span,
+  .focus-list li,
+  .focus-tag {
+    text-align: center;
+  }
+
+  /* ------------------------------------------------------------------------
+     Education Timeline (768px and below)
+     - Timeline-item: flex column instead of row
+     - Period: not fixed width, block
+     ------------------------------------------------------------------------ */
+  .timeline {
+    padding-left: 28px !important;
+  }
+
+  .timeline-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 16px 18px !important;
+  }
+
+  .timeline-item .period,
+  .period {
+    width: auto !important;
+    min-width: 0 !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+    color: var(--accent-hover, #818cf8) !important;
+  }
+
+  .timeline-item::before {
+    left: -25px !important;
+    top: 20px !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     Skills (768px and below)
+     - 2 columns still
+     - Adjusted padding on skill-group cards
+     ------------------------------------------------------------------------ */
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .skill-group {
+    padding: 20px !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     Projects (768px and below)
+     - Single column, stacked
+     - Visual min-height 200px
+     ------------------------------------------------------------------------ */
+  .project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .project {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .project-visual {
+    width: 100% !important;
+    min-width: 100% !important;
+    min-height: 200px !important;
+  }
+
+  .project-meta {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     Certifications & Interests (768px and below)
+     - Single column
+     ------------------------------------------------------------------------ */
+  .cert-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .interests {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin-top: 2.5rem !important;
+    padding-top: 2rem !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     Contact Section (768px and below)
+     - Single column
+     ------------------------------------------------------------------------ */
+  .contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  .contact-details {
+    width: 100% !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     Footer (768px and below)
+     - Stacked: flex column, centered text
+     - Footer-links: wrap
+     ------------------------------------------------------------------------ */
+  .footer-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.25rem !important;
+  }
+
+  .footer-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem 1.5rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile large: max-width: 480px
+   - Everything single column
+   - Smaller typography
+   - Full-width cards
+   - Reduced padding
+   - Skills: single column
+   - Actions buttons: full width
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Reduced container and section padding */
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  section,
+  .section,
+  .statement {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-block: 48px !important;
+  }
+
+  /* Smaller typography fallbacks */
+  h1,
+  .hero h1 {
+    font-size: clamp(2rem, 9vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 1rem !important;
+  }
+
+  h2,
+  .about-heading h2,
+  .skills-heading h2,
+  .project-heading h2,
+  .cert-heading h2,
+  .contact h2 {
+    font-size: clamp(1.5rem, 6.5vw, 1.9rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h3 {
+    font-size: 1.15rem !important;
+  }
+
+  .intro {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .statement p {
+    font-size: 1.15rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Portrait photo slightly smaller */
+  .portrait-frame,
+  .profile-img,
+  .portrait-img {
+    max-width: 200px !important;
+    height: 200px !important;
+  }
+
+  /* Actions buttons: full width on smallest screens */
+  .actions,
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .button,
+  .actions .button,
+  .actions a,
+  .actions button {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Skills: single column */
+  .skill-grid,
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Full-width cards & reduced padding */
+  .skill-group,
+  .skill-card {
+    padding: 16px !important;
+    width: 100% !important;
+    border-radius: 12px;
+  }
+
+  .project,
+  .project-card {
+    width: 100% !important;
+    border-radius: 12px;
+  }
+
+  .project-visual {
+    min-height: 190px !important;
+  }
+
+  .project-meta {
+    padding: 16px !important;
+    width: 100% !important;
+  }
+
+  .github-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Focus list: full-width / wrap cleanly */
+  .focus-list {
+    gap: 8px !important;
+  }
+
+  .focus-list span {
+    flex: 1 1 calc(50% - 8px);
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
+    text-align: center;
+  }
+
+  /* Contact item padding */
+  .contact-details a,
+  .contact-details p {
+    padding: 14px 16px !important;
+  }
+
+  .email-link {
+    font-size: 1.15rem !important;
+    word-break: break-all;
+  }
+
+  /* Social row compact */
+  .social-row {
+    gap: 1rem !important;
+  }
+
+  .social-row a {
+    font-size: 0.85rem !important;
+  }
+
+  /* Hide decorative elements for performance */
+  .orb,
+  .orb-one,
+  .orb-two,
+  .orb-primary,
+  .orb-secondary,
+  .orb-subtle,
+  .portrait-grid {
+    display: none !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile small: max-width: 360px
+   - Minimum viable layout
+   - Even more compact
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  /* Minimal container padding */
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  section,
+  .section,
+  .statement {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    padding-block: 40px !important;
+  }
+
+  /* Compact typography */
+  h1,
+  .hero h1 {
+    font-size: 1.85rem !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  h2 {
+    font-size: 1.35rem !important;
+  }
+
+  .hero-role {
+    font-size: 0.95rem !important;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem !important;
+  }
+
+  /* Compact portrait */
+  .portrait-frame,
+  .profile-img,
+  .portrait-img {
+    max-width: 170px !important;
+    height: 170px !important;
+  }
+
+  /* Compact cards */
+  .skill-group {
+    padding: 14px !important;
+  }
+
+  .project-meta {
+    padding: 14px !important;
+  }
+
+  .project-visual {
+    min-height: 160px !important;
+  }
+
+  .button,
+  .actions .button {
+    padding: 10px 16px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .focus-list span {
+    flex: 1 1 100% !important;
+    width: 100%;
+  }
+
+  .timeline {
+    padding-left: 22px !important;
+  }
+
+  .timeline-item {
+    padding: 12px !important;
+  }
+
+  .timeline-item::before {
+    left: -20px !important;
+  }
+
+  .social-row {
+    gap: 0.75rem !important;
+  }
+
+  .nav-links.open {
+    gap: 18px !important;
+    padding: 24px 16px !important;
+  }
+
+  .nav-links.open a {
+    font-size: 1.15rem !important;
+    padding: 6px 12px !important;
+  }
+}
+
+
+/* ==========================================================================
+   ACCESSIBILITY & PRINT PREFERENCES
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .menu-toggle i,
+  .menu-toggle span {
+    transition: none !important;
+  }
+
+  .nav-links.open {
+    animation: none !important;
+  }
+}
+
+@media print {
+  .menu-toggle,
+  .nav-links,
+  .orb,
+  .portrait-grid,
+  .actions,
+  .social-row {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .project,
+  .skill-group {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+
+/* Resume button responsive */
+@media (max-width: 768px) {
+  .nav-resume-btn {
+    margin-left: 0;
+    margin-top: 16px;
+    padding: 12px 24px !important;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .button.resume {
+    width: 100%;
+    justify-content: center;
+  }
+}
